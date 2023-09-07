@@ -41,12 +41,19 @@ function main() {
             rawData = json;
         }
 
+        console.log(rawData);
+        console.log(typeof rawData);
+
         if(rawData === undefined || rawData === null) {
             core.setFailed('export failed input.json is null');
             return;
         }
 
         const jsonData = JSON.parse(rawData);
+
+        console.log(jsonData);
+        console.log(typeof jsonData);
+
         core.info(`PREFIX: ${prefix}`);
 
         if(Array.isArray(jsonData)) {
