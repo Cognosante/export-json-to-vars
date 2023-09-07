@@ -2883,6 +2883,9 @@ function main() {
         const prefix = core.getInput('prefix') ?? '';
         const masked = (core.getInput('masked') ?? 'false') === 'true';
         const isFile = fs.existsSync(json);
+
+        console.log('json: ', json);
+        console.log('json type:', typeof json);
         
         let rawData = null;
         if(isFile) {
