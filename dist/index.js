@@ -2898,7 +2898,7 @@ function main() {
             core.setFailed('export failed input.json is null');
             return;
         }
-        
+
         const jsonData = JSON.parse(rawData);
         core.info(`PREFIX: ${prefix}`);
 
@@ -2917,6 +2917,7 @@ function main() {
         }
     }
     catch(error) {
+        console.log(error);
         core.setFailed(error.message);
     }
 }
