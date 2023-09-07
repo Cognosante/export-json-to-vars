@@ -20,3 +20,8 @@ jobs:
         masked: true
     - name: show environment
       run: env | grep TEST_
+
+    - name: test secret value
+      run: |
+        echo check if test secret equals to 4 9s
+        [ "$TEST_SECRET" == "9999" ] && echo "TEST_SECRET valid" || echo "TEST_SECRET invalid"
