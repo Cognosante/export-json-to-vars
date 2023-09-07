@@ -19,4 +19,4 @@ jobs:
         json: "${{ toJson(secrets) }}"
         masked: true
     - name: show environment
-      run: env
+      run: env | grep TEST_

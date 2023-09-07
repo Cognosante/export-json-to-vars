@@ -2887,7 +2887,7 @@ function main() {
         console.log('json: ', json);
         console.log('json type:', typeof json);
         
-        let rawData = null;
+        let rawData = undefined;
         if(isFile) {
             const fullPath = path.resolve(json);
             core.info(`Processing file: ${fullPath}`);
@@ -2900,8 +2900,8 @@ function main() {
         console.log(rawData);
         console.log(typeof rawData);
 
-        if(rawData === undefined || rawData === null) {
-            core.setFailed('export failed input.json is null');
+        if(rawData === undefined) {
+            core.setFailed('export failed input.json is undefined');
             return;
         }
 
