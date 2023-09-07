@@ -1,0 +1,21 @@
+name: 'Export JSON to environment variables'
+author: 'Cognosante'
+description: 'This action takes a json filepath or json string as input and writes its content as environment variables with optional secret masking'
+branding:
+  icon: 'lock'
+  color: 'red'
+inputs:
+  json:
+    description: 'The json file or string.'
+    required: true
+  prefix:
+    description: 'The prefix for variables.'
+    required: false
+    default: ''
+  masked:
+    description: 'Mask variables as secrets.'
+    required: false
+    default: 'false'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

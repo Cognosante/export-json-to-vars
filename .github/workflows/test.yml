@@ -1,0 +1,22 @@
+name: test 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: test action
+    steps:
+    - uses: actions/checkout@v2
+    - name: export vars to environment
+      uses: cognosante/export-json-to-vars@HEAD
+      with:
+        json: "${{ toJson(vars) }}"        
+    - name: export secrets to environment
+      uses: cognosante/export-json-to-vars@HEAD
+      with:
+        json: "${{ toJson(secrets) }}"
+        masked: true
+    - name: show environment
+      run: env
