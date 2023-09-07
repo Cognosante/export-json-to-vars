@@ -2884,6 +2884,9 @@ function main() {
         const masked = (core.getInput('masked') ?? 'false') === 'true';
         const isFile = fs.existsSync(json);
 
+        console.log('json: null?', json === null);
+        console.log('json: undefined?', json === undefined);
+        console.log('json: "null"?', json === "null");
         console.log('json: ', json);
         console.log('json type:', typeof json);
         
