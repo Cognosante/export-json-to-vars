@@ -1,5 +1,5 @@
 # Overview 
-this action reads a json file or string and writes its contents as environment variables with optional secret masking
+This action reads a json file or string and writes its contents as environment variables with optional secret masking
 
 ## Inputs
 | name   | required | default | description                                                                       |
@@ -23,6 +23,21 @@ this action reads a json file or string and writes its contents as environment v
 - name: show env
   run: env
 ```
+
+## Deployment
+To deploy changes to this github action please use the following steps. 
+
+- generate build
+```sh
+npm run build
+```
+- ensure changes in `dist` folder are included in commit
+- after PR is merged into master, tag master push tags to gh
+```sh
+git tag -a -m "added new input validation" v1.1.0
+git push --follow-tags
+```
+- now the new version can be used in gh action workflows
 
 ## Reference
 Adapted technique from the following gh action projects and refactored for internal use.
