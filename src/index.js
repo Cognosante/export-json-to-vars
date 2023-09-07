@@ -31,12 +31,20 @@ function main() {
         const masked = (core.getInput('masked') ?? 'false') === 'true';
         const isFile = fs.existsSync(json);
 
-        console.log('json: null?', json === null);
-        console.log('json: undefined?', json === undefined);
-        console.log('json: "null"?', json === "null");
-        console.log('json: ', json);
-        console.log('json type:', typeof json);
-        
+        /*
+            passing "${{ toJson(vars) }}" will call JSON.stringify() internally
+            in the action which will return "null" if no variables are set
+             
+            **really confusing** since the 
+            value is "null" and not actually null or undefined
+
+            add early check to prevent processing in this case
+        */
+        if(json === 'null') {
+            core.setFailed('export failed input.json is null');
+            return;
+        }
+
         let rawData = undefined;
         if(isFile) {
             const fullPath = path.resolve(json);
@@ -47,18 +55,12 @@ function main() {
             rawData = json;
         }
 
-        console.log(rawData);
-        console.log(typeof rawData);
-
-        if(rawData === undefined) {
-            core.setFailed('export failed input.json is undefined');
-            return;
-        }
-
         const jsonData = JSON.parse(rawData);
 
-        console.log(jsonData);
-        console.log(typeof jsonData);
+        if(jsonData === null) {
+            core.setFailed('export failed input.json is null');
+            return;
+        }
 
         core.info(`PREFIX: ${prefix}`);
 
