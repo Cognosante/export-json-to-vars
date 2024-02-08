@@ -1,24 +1,24 @@
 {
-    "name": "export-json-to-vars",
-    "version": "1.0.0",
-    "description": "This action reads json string or file and writes its content as environment variables with optional secret masking",
-    "main": "dist/index.js",
-    "scripts": {
-        "build": "ncc build src/index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Cognosante/export-json-to-vars.git"
-    },
-    "keywords": [],
-    "author": "cognosante",
-    "license": "MIT",
-    "dependencies": {
-        "@actions/core": "^1.2.6",
-        "@actions/github": "^4.0.0"
-    },
-    "devDependencies": {
-        "@vercel/ncc": "^0.38.0"
-    }
+  "name": "export-json-to-vars",
+  "version": "1.0.1",
+  "description": "This action reads json string or file and writes its content as environment variables with optional secret masking",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cognosante/export-json-to-vars.git"
+  },
+  "keywords": [],
+  "author": "cognosante",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.0"
+  }
 }
